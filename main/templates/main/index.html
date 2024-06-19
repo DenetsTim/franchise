@@ -57,7 +57,7 @@
 
         <div class="content_wrapper">
             <a name="content_anchor"></a>
-            <div class="consult_title_mobile">
+            <div class="consult_title">
                 <div class="content_description">
                     <div class="dark_point"></div>
                     <p>Чем мы можем помочь</p>
@@ -67,35 +67,21 @@
                 </div>
             </div>
             <div class="consult_table">
-                <div class="consult_table_element empty">
-                    <h3 style="font-size: calc(3.6 * var(--scale-ratio));">Продукты и услуги 1С</h3>
+                <div class="consult_table_element" onclick="document.querySelector('.consult_content_wrapper').classList.toggle('enabled');">
+                    <p>Программы 1С</p>
                 </div>
                 <div class="consult_table_element">
-                    <p>Продажа продуктов и сервисов 1С</p>
+                    <p>Услуги 1С</p>
                 </div>
                 <div class="consult_table_element">
-                    <p>Сопровождение продуктов 1С</p>
+                    <p>Сервисы 1С</p>
                 </div>
-                <div class="consult_table_element empty" style="justify-content: end;">
-                    <div class="content_description">
-                        <div class="dark_point"></div>
-                        <h3 style="font-size: calc(2 * var(--scale-ratio)); font-weight: 300;">Чем мы можем помочь</h3>
-                    </div>
-                </div>
-                <div class="consult_table_element">
-                    <p>Внедрение систем 1С</p>
-                </div>
-                <div class="consult_table_element_end">
-                    <h3>Обсудить проект</h3>
-                    <a href="#contacts_anchor" class="contacts_anchor">
-                        <div class="consult_table_button">
-                            <p>Связаться с нами</p>
-                            <div class="button_arrow">
-                                <div class="right_arrow"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            </div>
+            <div class="consult_content_wrapper">
+                <p>1С:Предприятие — это отличная платформа для разработки бизнес-приложений.<br>
+                    Постараемся рассказать про это подробно и убедительно.<br>
+                    Что такое 1С:Предприятие? Мы говорим, что это система программ. Она состоит из платформы, приложений, экосистемы, различной методической информации и, конечно, специалистов, которые работают с этими технологиями и приложениями.<br>
+                    Но в основе лежит платформа, на которой пишутся бизнес-приложения и сегодня поговорим о том, почему платформа, зачем она нужна, чем она хороша и почему на ней разрабатывать лучше, чем на обычных универсальных языках программирования.</p>
             </div>
         </div>
 
@@ -165,12 +151,12 @@
                 <section class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate1.jpg" %}" alt="Сертификат"></li>
-                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate2.jpg" %}" alt="Сертификат"></li>
-                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate3.jpg" %}" alt="Сертификат"></li>
-                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate4.jpg" %}" alt="Сертификат"></li>
-                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate5.jpg" %}" alt="Сертификат"></li>
-                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate6.jpg" %}" alt="Сертификат"></li>
+                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate1.jpg" %}" alt="Сертификат" id="certificate1"></li>
+                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate2.jpg" %}" alt="Сертификат" id="certificate2"></li>
+                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate3.jpg" %}" alt="Сертификат" id="certificate3"></li>
+                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate4.jpg" %}" alt="Сертификат" id="certificate4"></li>
+                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate5.jpg" %}" alt="Сертификат" id="certificate5"></li>
+                            <li class="splide__slide"><img src="{% static "/image/certificates/certificate6.jpg" %}" alt="Сертификат" id="certificate6"></li>
                         </ul>
                     </div>
                 </section>
@@ -182,10 +168,10 @@
                 <section class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            <li class="splide__slide"><img src="{% static "/image/comments/comment1.png" %}" alt="Отзыв"></li>
-                            <li class="splide__slide"><img src="{% static "/image/comments/comment2.png" %}" alt="Отзыв"></li>
-                            <li class="splide__slide"><img src="{% static "/image/comments/comment3.png" %}" alt="Отзыв"></li>
-                            <li class="splide__slide"><img src="{% static "/image/comments/comment4.png" %}" alt="Отзыв"></li>
+                            <li class="splide__slide"><img src="{% static "/image/comments/comment1.png" %}" alt="Отзыв" id="comment1"></li>
+                            <li class="splide__slide"><img src="{% static "/image/comments/comment2.png" %}" alt="Отзыв" id="comment2"></li>
+                            <li class="splide__slide"><img src="{% static "/image/comments/comment3.png" %}" alt="Отзыв" id="comment3"></li>
+                            <li class="splide__slide"><img src="{% static "/image/comments/comment4.png" %}" alt="Отзыв" id="comment4"></li>
                         </ul>
                     </div>
                 </section>
@@ -274,7 +260,13 @@
         </div>
 
         <div id="mainModal" class="modal">
+            <div class="modalImgBtn prev">
+                <div class="right_arrow" style="transform: rotate(135deg);"></div>
+            </div>
             <img class="modal_content" id="modalImg">
+            <div class="modalImgBtn next">
+                <div class="right_arrow"></div>
+            </div>
         </div>
         <div id="confidentPoliticsModal" class="modal">
             <div class="modal_text">

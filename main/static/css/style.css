@@ -323,9 +323,6 @@ body{
     font-size: calc(2 * var(--scale-ratio));
 }
 
-.consult_title_mobile{
-    display: none;
-}
 .consult_subtitle{
     color: var(--main-text-color);
     font-family: var(--fonts);
@@ -459,6 +456,35 @@ body{
 .consult_table_button:hover > .button_arrow .right_arrow{
     translate: 6px;
 }
+
+.consult_content_wrapper{
+    font-family: var(--fonts);
+    
+    display: flex;
+    overflow: hidden;
+    max-height: 0;
+
+    padding: calc(2 * var(--scale-ratio));
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid var(--line-color);
+    border-radius: 5px;
+
+    transition: all .3s ease-in-out;
+
+    border-width: 0;
+    padding: 0;
+
+}
+.consult_content_wrapper.enabled{
+    padding: calc(2 * var(--scale-ratio));
+    border-width: 1px;
+
+    max-height: 300px;
+}
+
 
 /* ----------PLUS---------- */
 .plus_text_container{
@@ -837,9 +863,47 @@ body{
     display: block;
     height: 90%;
 
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
     animation-name: zoom;
     animation-duration: 0.6s;
 }
+.modalImgBtn{
+    position: relative;
+    top: 0;
+
+    height: 100%;
+    width: calc(13 * var(--scale-ratio));
+
+    cursor: pointer;
+
+    background-color: #80808020;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modalImgBtn.prev{
+    left: 0;
+}
+.modalImgBtn.next{
+    right: 0;
+}
+.modalImgBtn div{
+    border-width: 0 calc(2.5 * var(--scale-ratio)) calc(2.5 * var(--scale-ratio)) 0;
+    padding: calc(2.5 * var(--scale-ratio));
+    opacity: .2;
+}
+
+.modalImgBtn:hover > div{
+    opacity: .5;
+}
+
+
 .modal_text{
     margin: 5vh auto;
     display: block;
@@ -904,9 +968,6 @@ body{
         font-size: calc(3.5 * var(--scale-ratio));
     }
 
-    .consult_title_mobile{
-        display: block;
-    }
     .content_description p{
         font-size: calc(3 * var(--scale-ratio));
     }
@@ -1034,6 +1095,24 @@ body{
     .modal_content{
         width: 100%;
         height: auto;
+    }
+    .modalImgBtn{
+        transform-origin: center;
+        position: absolute;
+        top: 50%;
+    
+        height: 0;
+        margin: 0 20px;
+        width: auto;
+
+        z-index: 2;
+    }
+    .modalImgBtn div{
+        border-width: 0 calc(2 * var(--scale-ratio)) calc(2 * var(--scale-ratio)) 0;
+        padding: calc(2 * var(--scale-ratio));
+
+        border-color: black;
+        opacity: .5;
     }
     .modal_text h3{
         font-size: calc(5 * var(--scale-ratio));

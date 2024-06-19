@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ug!g@mc3m)^fo&f7!x$1y*1&*&=e8540@&gq6)dfi@yz@r1oiq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['khairova.ru', 'www.khairova.ru']
+ALLOWED_HOSTS = ['khairova.ru', 'www.khairova.ru'] if not DEBUG else ['*']
 
 
 # Application definition
@@ -82,6 +82,11 @@ DATABASES = {
         'USER': 'u2637589_default',
         'PASSWORD': 'zDFZ2we7TWtoYO85',
         'HOST': 'localhost',
+    }
+}if not DEBUG else {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
