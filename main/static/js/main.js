@@ -24,10 +24,10 @@ for ( let i = 0; i < spliders.length; i++ ) {
 }
 
 
-let mainModal = document.getElementById("mainModal");
-let modalImg = document.getElementById("modalImg");
+const mainModal = document.getElementById("mainModal");
+const modalImg = document.getElementById("modalImg");
 
-let imgs = document.querySelectorAll('img')
+const imgs = document.querySelectorAll('img')
 imgs.forEach(img => {
     img.onclick = function(){
         mainModal.style.display = "flex";
@@ -35,8 +35,8 @@ imgs.forEach(img => {
     }
 });
 
-let modalImgBtn_prev = document.querySelector(".modalImgBtn.prev");
-let modalImgBtn_next = document.querySelector(".modalImgBtn.next");
+const modalImgBtn_prev = document.querySelector(".modalImgBtn.prev");
+const modalImgBtn_next = document.querySelector(".modalImgBtn.next");
 
 const CERTIFICATE_COUNT = 6
 const COMMENT_COUNT = 4
@@ -69,18 +69,59 @@ mainModal.onclick = function(event){
     }
 };
 
-let confidentModal = document.getElementById("confidentPoliticsModal");
+const confidentModal = document.getElementById("confidentPoliticsModal");
+const confidentModalLinks = document.querySelectorAll('confident_politics_link');
 
-let confidentModalLinks = document.querySelectorAll('.confident_politics_link')
 confidentModalLinks.forEach(link => {
     link.onclick = function(){
         confidentModal.style.display = "block";
         document.body.style.overflowY = "hidden";
     }
-})
+});
 confidentModal.onclick = function(event){
     if (!event.target.closest('.modal_text')){
         this.style.display = "none";
         document.body.style.overflowY = "auto";
+    }
+};
+
+const programsButton = document.getElementById("consult_table_programs");
+const servicesButton = document.getElementById("consult_table_services");
+
+const consultContentWrapper = document.querySelector(".consult_content_wrapper");
+
+const programsContent = document.querySelector(".consult_programs_table");
+const servicesContent = document.querySelector(".consult_services_table");
+
+programsButton.onclick = function(){
+    if (consultContentWrapper.classList.contains("enabled")){
+        if (programsContent.classList.contains("enabled")){
+            consultContentWrapper.classList.remove("enabled");
+            programsContent.classList.remove("enabled");
+        }
+        else {
+            servicesContent.classList.remove("enabled");
+            programsContent.classList.add("enabled");
+        }
+    }
+    else{
+        consultContentWrapper.classList.add("enabled");
+        programsContent.classList.add("enabled");
+    }
+};
+servicesButton.onclick = function(){
+    if (consultContentWrapper.classList.contains("enabled")){
+        if (servicesContent.classList.contains("enabled")){
+            consultContentWrapper.classList.remove("enabled");
+            servicesContent.classList.remove("enabled");
+        }
+        else {
+            programsContent.classList.remove("enabled");
+            servicesContent.classList.add("enabled");
+        }
+    }
+    else{
+        consultContentWrapper.classList.add("enabled");
+        servicesContent.classList.add("enabled");
     }
 };

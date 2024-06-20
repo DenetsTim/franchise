@@ -67,21 +67,61 @@
                 </div>
             </div>
             <div class="consult_table">
-                <div class="consult_table_element" onclick="document.querySelector('.consult_content_wrapper').classList.toggle('enabled');">
+                <div class="consult_table_element" id="consult_table_programs">
                     <p>Программы 1С</p>
                 </div>
                 <div class="consult_table_element">
                     <p>Услуги 1С</p>
                 </div>
-                <div class="consult_table_element">
+                <div class="consult_table_element" id="consult_table_services">
                     <p>Сервисы 1С</p>
                 </div>
             </div>
             <div class="consult_content_wrapper">
-                <p>1С:Предприятие — это отличная платформа для разработки бизнес-приложений.<br>
-                    Постараемся рассказать про это подробно и убедительно.<br>
-                    Что такое 1С:Предприятие? Мы говорим, что это система программ. Она состоит из платформы, приложений, экосистемы, различной методической информации и, конечно, специалистов, которые работают с этими технологиями и приложениями.<br>
-                    Но в основе лежит платформа, на которой пишутся бизнес-приложения и сегодня поговорим о том, почему платформа, зачем она нужна, чем она хороша и почему на ней разрабатывать лучше, чем на обычных универсальных языках программирования.</p>
+                <div class="consult_programs_table">
+                    <div class="consult_programs_table_element">
+                        <img src="{% static "/image/programs/logo1c.png" %}" alt="Платформа 1С">
+                        <p>Платформа</p>
+                    </div>
+                    <div class="consult_programs_table_element">
+                        <img src="{% static "/image/programs/bgu.png" %}" alt="БГУ">
+                        <p>БГУ</p>
+                    </div>
+                    <div class="consult_programs_table_element">
+                        <img src="{% static "/image/programs/zkgu.png" %}" alt="ЗКГУ">
+                        <p>ЗКГУ</p>
+                    </div>
+                    <div class="consult_programs_table_element">
+                        <img src="{% static "/image/programs/zup.png" %}" alt="ЗУП">
+                        <p>ЗУП</p>
+                    </div>
+                </div>
+                <div class="consult_services_table">
+                    <div class="consult_services_table_element">
+                        <img src="{% static "/image/services/its.png" %}" alt="ИТС">
+                        <p>ИТС</p>
+                    </div>
+                    <div class="consult_services_table_element">
+                        <img src="{% static "/image/services/edo.png" %}" alt="ЭДО">
+                        <p>ЭДО</p>
+                    </div>
+                    <div class="consult_services_table_element">
+                        <img src="{% static "/image/services/agent.png" %}" alt="Контрагент">
+                        <p>Контрагент</p>
+                    </div>
+                    <div class="consult_services_table_element">
+                        <img src="{% static "/image/services/cabinet.png" %}" alt="Кабинет сотрудника">
+                        <p>Кабинет сотрудника</p>
+                    </div>
+                    <div class="consult_services_table_element">
+                        <img src="{% static "/image/services/fresh.png" %}" alt="ФРЕШ">
+                        <p>ФРЕШ</p>
+                    </div>
+                    <div class="consult_services_table_element">
+                        <img src="{% static "/image/services/otchet.png" %}" alt="Отчет">
+                        <p>Отчет</p>
+                    </div>
+                </div>
             </div>
         </div>
 
