@@ -389,7 +389,7 @@ body{
     text-align: center;
 
     color: var(--content-text-color);
-    font-size: calc(1.9 * var(--scale-ratio));
+    font-size: calc(2.4 * var(--scale-ratio));
 
     display: flex;
     align-items: center;
@@ -397,12 +397,12 @@ body{
 .consult_element p::before{
     margin-right: var(--scale-ratio);
 
-    content: "+";
+    content: "/";
     font-size: calc(12 * var(--scale-ratio));
     color: var(--line-color);
 }
 .consult_element.selected > p::before{
-    content: "−";
+    content: "|";
 }
 
 .consult_content_wrapper{
