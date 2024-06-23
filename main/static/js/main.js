@@ -29,9 +29,11 @@ const modalImg = document.getElementById("modalImg");
 
 const imgs = document.querySelectorAll('img')
 imgs.forEach(img => {
-    img.onclick = function(){
-        mainModal.style.display = "flex";
-        modalImg.src = this.src;
+    if (img.id.startsWith('c')){
+        img.onclick = function(){
+            mainModal.style.display = "flex";
+            modalImg.src = this.src;
+        }
     }
 });
 
@@ -70,7 +72,7 @@ mainModal.onclick = function(event){
 };
 
 const confidentModal = document.getElementById("confidentPoliticsModal");
-const confidentModalLinks = document.querySelectorAll('confident_politics_link');
+const confidentModalLinks = document.querySelectorAll('.confident_politics_link');
 
 confidentModalLinks.forEach(link => {
     link.onclick = function(){
@@ -85,43 +87,87 @@ confidentModal.onclick = function(event){
     }
 };
 
-const programsButton = document.getElementById("consult_table_programs");
-const servicesButton = document.getElementById("consult_table_services");
+const programsButton = document.getElementById("consult_programs_button");
+const maintenanceButton = document.getElementById("consult_maintenance_button");
+const servicesButton = document.getElementById("consult_services_button");
+
+const consultButtons = [programsButton, maintenanceButton, servicesButton];
 
 const consultContentWrapper = document.querySelector(".consult_content_wrapper");
 
 const programsContent = document.querySelector(".consult_programs_table");
+const maintenanceContent = document.querySelector(".consult_maintenance_table");
 const servicesContent = document.querySelector(".consult_services_table");
 
-programsButton.onclick = function(){
-    if (consultContentWrapper.classList.contains("enabled")){
-        if (programsContent.classList.contains("enabled")){
-            consultContentWrapper.classList.remove("enabled");
-            programsContent.classList.remove("enabled");
+const consultContent = [programsContent, maintenanceContent, servicesContent];
+
+const tableElemenets = document.querySelectorAll(".consult_table_element")
+
+consultButtons.forEach(button => {
+    button.onclick = function(event){
+        if (consultContentWrapper.classList.contains("enabled")){
+            if (consultContent[consultButtons.indexOf(button)].classList.contains("enabled")){
+                consultContent[consultButtons.indexOf(button)].classList.remove("enabled", "flexed");
+                consultContentWrapper.classList.remove("enabled");
+                button.classList.remove("selected");
+
+                tableElemenets.forEach(element => {
+                    element.classList.remove("minimized");
+                    element.classList.remove("expanded");
+                });
+            }
+            else{
+                consultContent.forEach(content => {
+                    content.classList.remove("enabled", "flexed");
+                });
+                consultButtons.forEach(button => {
+                    button.classList.remove("selected");
+                });
+
+                consultContent[consultButtons.indexOf(button)].classList.add("enabled");
+                button.classList.add("selected");
+
+
+                tableElemenets.forEach(element => {
+                    element.classList.remove("minimized");
+                    element.classList.remove("expanded");
+                });
+            }
         }
-        else {
-            servicesContent.classList.remove("enabled");
-            programsContent.classList.add("enabled");
+        else{
+            consultContentWrapper.classList.add("enabled");
+            consultContent[consultButtons.indexOf(button)].classList.add("enabled");
+            button.classList.add("selected");
         }
     }
-    else{
-        consultContentWrapper.classList.add("enabled");
-        programsContent.classList.add("enabled");
-    }
-};
-servicesButton.onclick = function(){
-    if (consultContentWrapper.classList.contains("enabled")){
-        if (servicesContent.classList.contains("enabled")){
-            consultContentWrapper.classList.remove("enabled");
-            servicesContent.classList.remove("enabled");
+});
+
+tableElemenets.forEach(tableElemenet => {
+    tableElemenet.onclick = function(event){
+        if (tableElemenet.classList.contains("expanded")) {
+            tableElemenets.forEach(element => {
+                if (element.parentElement == tableElemenet.parentElement){
+                    element.classList.remove("minimized");
+                }
+            });
+
+            tableElemenet.classList.remove("expanded");
+
+            setTimeout(() => {
+                tableElemenet.parentElement.classList.remove("flexed");
+            }, 701);
         }
-        else {
-            programsContent.classList.remove("enabled");
-            servicesContent.classList.add("enabled");
+        else{
+            tableElemenets.forEach(element => {
+                if (element.parentElement == tableElemenet.parentElement){
+                    element.classList.remove("expanded");
+                    element.classList.add("minimized");
+                }
+            });
+            tableElemenet.classList.remove("minimized");
+            tableElemenet.classList.add("expanded");
+
+            tableElemenet.parentElement.classList.add("flexed");
         }
     }
-    else{
-        consultContentWrapper.classList.add("enabled");
-        servicesContent.classList.add("enabled");
-    }
-};
+});
