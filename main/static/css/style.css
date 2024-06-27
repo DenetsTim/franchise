@@ -429,7 +429,7 @@ body{
     padding: calc(2 * var(--scale-ratio));
     border-width: 1px;
 
-    max-height: 100vh;
+    max-height: 200vh;
 }
 
 .consult_content_wrapper > div{
@@ -442,7 +442,7 @@ body{
     transition: all .3s ease-in-out;
 }
 .consult_content_wrapper > div.enabled{
-    max-height: 100vh;
+    max-height: 200vh;
 }
 .consult_content_wrapper > div.flexed{
     display: flex;
@@ -474,7 +474,7 @@ body{
     margin: 0;
 }
 .consult_table_element.expanded > p.consult_element_description{
-    max-height: 100vh;
+    max-height: 200vh;
     max-width: 100vw;
 }
 .consult_element_main_info{
@@ -489,7 +489,7 @@ body{
     margin-left: var(--scale-ratio);
     font-size: calc(1.8 * var(--scale-ratio));
 
-    max-height: 100vh;
+    max-height: 200vh;
     max-width: 50vw;
     overflow: hidden;
 
@@ -1006,47 +1006,36 @@ body{
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    .consult_table_element{
+    .consult_element{
         height: 12vh;
     }
-    .consult_table_element h3{
+    .consult_element p{
         font-size: calc(3.5 * var(--scale-ratio));
     }
-    .consult_table_element p{
-        font-size: calc(3 * var(--scale-ratio));
-    }
-    .consult_table_element p::before{
+    .consult_element p::before{
         font-size: calc(14 * var(--scale-ratio));
     }
-    .consult_table_element.empty{
-        display: none;
-    }
-    .consult_table_element_end{
-        height: 12vh;
-    }
-    .consult_table_element_end h3{
-        font-size: calc(3.5 * var(--scale-ratio));
-    }
-    .consult_table_button{
-        padding: calc(1.2 * var(--scale-ratio)) calc(2 * var(--scale-ratio));
-    }
-    .consult_table_button p{
-        font-size: calc(3 * var(--scale-ratio));
-    }
-    .button_arrow{
-        width: calc(5 * var(--scale-ratio));
     
-        margin-left: calc(3 * var(--scale-ratio));
+    .consult_content_wrapper{
+        margin-top: 16px;
     }
-    .right_arrow{
-        border: solid white;
-        border-width: 0 4px 4px 0;
-        display: inline-block;
-        padding: 4px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
+    .consult_content_wrapper > div{
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    .consult_content_wrapper > div.flexed{
+        display: grid;
+    }
     
-        transition: all .3s ease-in-out;
+    .consult_element_main_info img{
+        height: calc(10 * var(--scale-ratio));
+    }
+    .consult_element_main_info p.consult_element_name{
+        font-size: calc(3.2 * var(--scale-ratio));
+    }
+    .consult_element_description{
+        font-size: calc(2.8 * var(--scale-ratio));
+        margin-top: 8px;
     }
 
     .plus_subtitle{

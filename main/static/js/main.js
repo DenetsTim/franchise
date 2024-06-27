@@ -1,4 +1,5 @@
-slidesPerPage = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 1 : 3
+let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+let slidesPerPage = isMobile ? 1 : 3
 
 let spliders = document.getElementsByClassName( 'splide' );
 for ( let i = 0; i < spliders.length; i++ ) {
@@ -161,7 +162,9 @@ tableElemenets.forEach(tableElemenet => {
             tableElemenets.forEach(element => {
                 if (element.parentElement == tableElemenet.parentElement){
                     element.classList.remove("expanded");
-                    element.classList.add("minimized");
+                    if (!isMobile){
+                        element.classList.add("minimized");
+                    }
                 }
             });
             tableElemenet.classList.remove("minimized");
