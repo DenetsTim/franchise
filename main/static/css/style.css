@@ -513,6 +513,10 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.consult_maintenance_table{
+    font-size: calc(1.5 * var(--scale-ratio));
+}
+
 /* ----------PLUS---------- */
 .plus_text_container{
     height: 100%;
@@ -1025,6 +1029,9 @@ body{
     }
     .consult_content_wrapper > div.flexed{
         display: grid;
+    }
+    .consult_maintenance_table{
+        font-size: calc(2.8 * var(--scale-ratio));
     }
     
     .consult_element_main_info img{
